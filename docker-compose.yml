@@ -1,0 +1,28 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: suicide-rate-api
+    container_name: suicide-rate-api
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    image: suicide-rate-ui
+    container_name: suicide-rate-ui
+    environment:
+      - API_URL=http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
