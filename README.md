@@ -160,26 +160,21 @@ Servicios:
 * API → [http://localhost:8000/docs](http://localhost:8000/docs)
 * UI  → [http://localhost:8501](http://localhost:8501)
 
-
-Exacto 👌 — es **muy buena práctica** documentar eso en tu repo, para que cualquiera que lo clone entienda por qué no encuentra los `.joblib` o datasets pesados.
-
-Lo ideal es armar una sección en el **README.md**, por ejemplo así:
-
 ---
 
 ### 📦 Datos y modelos
 
-> ⚠️ **Nota importante:**
-> Algunos archivos no se incluyen en este repositorio porque superan el límite de tamaño de GitHub (100 MB).
-> En particular:
->
-> * `models/rf_pipeline.joblib` (\~200 MB)
-> * `notebooks/models/rf_final_tuned.joblib` (\~165 MB)
->
-> Estos artefactos se pueden **re-generar** localmente ejecutando:
->
-> ```bash
-> python src/train_pipeline.py
-> ```
->
-> Esto entrenará el modelo Random Forest con los hiperparámetros optimizados y lo guardará en `models/`.
+ ⚠️ **Nota importante:**
+ Algunos archivos no se incluyen en este repositorio porque superan el límite de tamaño de GitHub (100 MB).
+ En particular:
+
+ * `models/rf_pipeline.joblib` (\~200 MB)
+ * `notebooks/models/rf_final_tuned.joblib` (\~165 MB)
+
+ Estos artefactos se pueden **re-generar** localmente ejecutando:
+
+ ```bash
+ python src/train_pipeline.py
+ ```
+
+ Esto entrenará el modelo Random Forest con los hiperparámetros optimizados y lo guardará en `models/`.
